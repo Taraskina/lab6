@@ -26,6 +26,7 @@ public class CommandMapper {
                             put(w.split(",")[0],
                                     CommandTypes.valueOf(w.split(",")[1])));
         } catch (IOException | LOLDIDNTREAD ignored) {
+            ignored.printStackTrace();
         }
         chanel.configureBlocking(false);
 

@@ -15,14 +15,19 @@ public class ServerMessaging {
 
     public static Response nioRead(SocketChannel clientChannel) throws IOException, LOLDIDNTREAD {
         ByteBuffer buf = ByteBuffer.allocate(clientChannel.socket().getReceiveBufferSize());
-        int read = clientChannel.read(buf);
-        if (read > 0) {
-            buf.flip();
-            String s = new String(ByteBuffer.allocate(read).put(buf.array(), 0, read).array());
-            return ObjectConverter.deserialize(s, new TypeReference<>() {
-            });
+        try {
+            int read = clientChannel.read(buf);
+            if (read > 0) {
+                buf.flip();
+                String s = new String(ByteBuffer.allocate(read).put(buf.array(), 0, read).array());
+                return ObjectConverter.deserialize(s, new TypeReference<>() {
+                });
 
-        } else throw new LOLDIDNTREAD();
+            } else throw new LOLDIDNTREAD();
+        } catch (IOException e) {
+            System.err.println("Исключение во время чтения: " + e.getMessage());
+            throw e;
+        }
     }
 
     public static void nioSend(SocketChannel clientChannel, String message) throws IOException {

@@ -43,13 +43,9 @@ public class Main {
             try {
                 flag = false;
                 InetSocketAddress socketAddress = new InetSocketAddress("localhost", 8081);
-
-                //InetSocketAddress  socketAddress = new InetSocketAddress(InetAddress.getByName("helios.cs.ifmo.ru"),8081);
                 socketChannel = SocketChannel.open(socketAddress);
-
                 socketChannel.configureBlocking(false);
                 System.out.println("connect with server");
-                //socketChannel.write(ByteBuffer.wrap("QkfR<6584".getBytes()));
             } catch (ConnectException e) {
                 flag = true;
                 e.printStackTrace();
@@ -104,7 +100,7 @@ public class Main {
 
     }
     public static void executeNext(Scanner s) throws IOException{
-        Request req = extractCommand(s.nextLine(), new Context(new Scanner(System.in))).calling();//прогоняем через кастрированую систему команд,инициализируя commandToExecute и принимая аргументы в ее args
+        Request req = extractCommand(s.nextLine(), new Context(new Scanner(System.in))).calling();
         if (!(req.commandToExecute instanceof NotFound)) {
             req.addMessage(req.getCommandToExecute().getName());
             nioSend(socketChannel, req);
