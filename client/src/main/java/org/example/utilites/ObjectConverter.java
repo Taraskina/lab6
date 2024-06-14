@@ -17,7 +17,6 @@ public class ObjectConverter {
     private ObjectConverter() {
     }
 
-
     public static <T > String toJson(T o){
 
         ObjectMapper om = new ObjectMapper();

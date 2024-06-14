@@ -12,9 +12,9 @@ public class SumOfWeight extends Command implements Callable {
 
     public SumOfWeight() {
         super();
-        this.commandType = CommandType.VALUE_ARGUMENTED;
+        this.commandType = CommandType.WITHOUT_ARGUMENTS;
     }
-    public final String name = "filter_greater_than_height";
+    public final String name = "sum_of_weight";
     public static SumOfWeight staticFactory(String[] args,String value){
         SumOfWeight inst =  new SumOfWeight();
         inst.setValue(value);

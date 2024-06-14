@@ -15,12 +15,13 @@ public abstract class Command {
     private String name = "command";
     String value;
     String[] args;
+
     public Command(String v, String[] args) {
         this.args = args;
         this.value = v;
     }
 
-    public Request calling(){
+    public Request calling() {
         Request request = new Request();
         request.setCommandToExecute(this);
         return request;
@@ -29,9 +30,9 @@ public abstract class Command {
     public static Command extractCommand(String str, Context ctx) {
         String[] tokens = str.split(" ");
         String prefix = "";
-        for(int i = 0;i< tokens.length;i++){
-            prefix+=tokens[i];
-            if(CommandMapper.nameToTypeMap.containsKey(prefix)){
+        for (int i = 0; i < tokens.length; i++) {
+            prefix += tokens[i];
+            if (CommandMapper.nameToTypeMap.containsKey(prefix)) {
                 CommandTypes type = CommandMapper.nameToTypeMap.get(prefix);
                 return switch (type) {
                     case VALUE_ARGUMENTED -> {
@@ -72,11 +73,11 @@ public abstract class Command {
                         } else yield new NotFound();
                     }
                 };
-            }else if (prefix.equals("execute_script")&&i< tokens.length-1){
-                new Execute(tokens[i+1]).calling();
+            } else if (prefix.equals("execute_script") && i < tokens.length - 1) {
+                new Execute(tokens[i + 1]).calling();
                 i++;
             }
-            prefix+=" ";
+            prefix += " ";
         }
         return new NotFound();
 
@@ -97,6 +98,7 @@ public abstract class Command {
     public void setArgs(String[] args) {
         this.args = args;
     }
+
     public String getName() {
         return name;
     }

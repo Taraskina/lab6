@@ -30,7 +30,7 @@ public class Execute extends Command {
         File file = new File(fileName);
         if(file.exists()){
             if (!Main.getWasExecuted().add(fileName)){
-                System.out.println("Ах ты шалунишка,не стоит делать рекурсионный вызов комманд, рекурсия была проинорирована");
+                System.out.println("Не стоит делать рекурсионный вызов комманд, рекурсия была проинорирована");
             }else {
                 Scanner fileContentScanner;
                 try {

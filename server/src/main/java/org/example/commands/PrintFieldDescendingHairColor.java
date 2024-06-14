@@ -15,7 +15,7 @@ public class PrintFieldDescendingHairColor extends Command implements Callable {
         this.commandType = CommandType.WITHOUT_ARGUMENTS;
     }
 
-    public final String name = "print_field_descending_loyal";
+    public final String name = "print_field_descending_hair_color";
     public static PrintFieldDescendingHairColor staticFactory(String[] args,String value){
         PrintFieldDescendingHairColor inst =  new PrintFieldDescendingHairColor();
         inst.setValue(value);

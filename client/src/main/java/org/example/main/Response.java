@@ -6,11 +6,9 @@ public class Response extends Message{
         return success;
     }
 
-
     public void setSuccess(boolean success) {
         this.success = success;
     }
-
 
     private boolean flag = true;
 
