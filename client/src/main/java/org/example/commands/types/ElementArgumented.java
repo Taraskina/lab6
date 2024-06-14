@@ -11,23 +11,22 @@ public class ElementArgumented extends ElementAndValueArgumented implements Elem
         super(null,args);
     }
     public ElementArgumented(Context ctx){
-        super(null,readSomeArgs(9,"s,l,f,l,b,f,s,s,s".split(","),ctx.getSc(),(
+        super(null,readSomeArgs(9,"s,l,l,d,i,s,l,l,f".split(","),ctx.getSc(),(
                         "Введите имя;" +
-                                "Введите целочисленную x-координату (x<=625));" +
-                                "Введите y-координату в формате деcятичной дроби (y>=-354.0);" +
-                                "Введите здоровье;" +
-                                "Введите булевое значение true/false преданности;" +
-                                "Введите десятичное число,характеризующее длинну;" +
+                                "Введите целочисленную x-координату;" +
+                                "Введите целочисленную y-координату (y>-867);" +
+                                "Введите рост в дробных значениях (>0);" +
+                                "Введите вес (целочисленный);" +
                                 """
-                                                Введите одно из названия для оружия:
-                                                    BOLT_PISTOL,
-                                                    COMBI_PLASMA_GUN,
-                                                    GRENADE_LAUNCHER,
-                                                    INFERNO_PISTOL,
-                                                    MULTI_MELTA;""" +
-                                "Введите название главы;"+
-                                "Введите название главы;").split(";"),
-                "more length 0;less than 626;more than -353.0;more than 0;;;is weapon;more length 0;more length 0".split(";")));
+                                                Введите один из цвета волос:
+                                                    RED,
+                                                    GREEN,
+                                                    BLUE,
+                                                    YELLOW;"""+
+                                "Введите целочисленную x-координату;" +
+                                "Введите целочисленную y-координату;" +
+                                "Введите дробно-десятичную z-координату;").split(";"),
+                "more length 0;more than -867;more than -867;more than 0;more than 0;;;is color;more than -867;more than -867;more than -867".split(";")));
     }
     public ElementAndValueArgumented elFactory(String v, String[] args){
         return  new ElementArgumented(args);

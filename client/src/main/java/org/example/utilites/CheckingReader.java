@@ -204,8 +204,8 @@ public class CheckingReader {
                     }
                 } else if(words.length == 2){
                     if (pred0.equals("is")) {
-                        if (Objects.equals(pred1, "weapon")) {
-                            if (!o.equals("BOLT_PISTOL") && !o.equals("INFERNO_PISTOL") && !o.equals("MULTI_MELTA") && !o.equals("COMBI_PLASMA_GUN") && !o.equals("GRENADE_LAUNCHER")) {
+                        if (Objects.equals(pred1, "hair")) {
+                            if (!o.equals("GREEN") && !o.equals("RED") && !o.equals("BLUE") && !o.equals("YELLOW")) {
                                 right = false;
                             }
                         } else {
